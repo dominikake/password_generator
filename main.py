@@ -1,15 +1,13 @@
-import random
 import string
+import secrets
 
-LOWER_CASE = string.ASCII_LOWERCASE
-UPPER_CASE = string.ascii_uppercase
-NUMBERS = string.digits
-PUNCTUATION = string.PUNCTUATION
+alphabet = string.ascii_letters + string.digits + string.punctuation
 
-def password_generator():
-    
-    password = random.choice(LOWER_CASE) + random.choice(UPPER_CASE) + random.choice(NUMBERS) + random.choice(PUNCTUATION)
-    password += ''.join(random.sample(string.ascii_letters + string.digits + string.PUNCTUATION, 4))
-    return password
-
-print(password_generator())
+while True:
+    password = ''.join(secrets.choice(alphabet) for i in range(8))
+    if (any(c.islower() for c in password)
+            and any(c.isupper() for c in password)
+            and any(c in string.punctuation for c in password)
+            and sum(c.isdigit() for c in password)):
+      print(password)
+      break
