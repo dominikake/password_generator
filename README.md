@@ -1,6 +1,6 @@
 # Pasword Generator
 
-Generates a password with 8 characters.
+Simply generates a password with 8 random characters.
 
 The password must contain:
 
